@@ -1,23 +1,23 @@
-# Ambientes virtuais
+# Virtual environments
 venv/
 env/
 .venv/
 
-# Cache e bytecode do Python
+# Python cache and bytecode
 __pycache__/
 *.pyc
 
-# Dataset baixado automaticamente pelo torchvision (não deve ir para o Git)
+# Dataset automatically downloaded by torchvision (should not be versioned)
 data/*
 !data/.gitkeep
 
-# Checkpoints de notebooks Jupyter
+# Jupyter notebook checkpoints
 .ipynb_checkpoints/
 
-# Arquivos de sistema operacional
+# Operating system files
 .DS_Store
 Thumbs.db
 
-# Ambientes de IDE
+# IDE settings
 .idea/
 .vscode/
