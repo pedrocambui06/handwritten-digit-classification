@@ -71,4 +71,7 @@ def train_model():
 
 
 if __name__ == "__main__":
-    train_model()
+    from src.utils import plot_training_curves
+
+    model, train_losses, train_accuracies = train_model()
+    plot_training_curves(train_losses, train_accuracies)

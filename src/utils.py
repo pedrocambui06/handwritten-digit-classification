@@ -30,6 +30,29 @@ def plot_sample_images(dataset, num_samples: int = 10, save_path: str = "results
     plt.savefig(save_path)
     print(f"Saved sample images to {save_path}")
 
+def plot_training_curves(train_losses, train_accuracies,
+                          loss_save_path: str = "results/figures/training_loss.png",
+                          accuracy_save_path: str = "results/figures/training_accuracy.png") -> None:
+    """Plot and save training loss and accuracy curves over epochs."""
+    epochs = range(1, len(train_losses) + 1)
+
+    # Loss curve
+    plt.figure()
+    plt.plot(epochs, train_losses, marker="o")
+    plt.title("Training Loss vs Epoch")
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.savefig(loss_save_path)
+    print(f"Saved training loss curve to {loss_save_path}")
+
+    # Accuracy curve
+    plt.figure()
+    plt.plot(epochs, train_accuracies, marker="o")
+    plt.title("Training Accuracy vs Epoch")
+    plt.xlabel("Epoch")
+    plt.ylabel("Accuracy")
+    plt.savefig(accuracy_save_path)
+    print(f"Saved training accuracy curve to {accuracy_save_path}")
 
 if __name__ == "__main__":
     train_dataset, test_dataset = get_datasets()
