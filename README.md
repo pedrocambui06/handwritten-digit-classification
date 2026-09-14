@@ -1,8 +1,8 @@
-# Handwritten Digit Classification with a Convolutional Neural Network (PyTorch)
+# Handwritten Digit Classification with CNN (Convolutional Neural Network) using PyTorch
 
-A step-by-step, reproducible implementation of an image classification pipeline using PyTorch, built as a personal learning project on Deep Learning fundamentals. This repository documents the full workflow, from raw MNIST data to a trained CNN, evaluation metrics, confusion matrix analysis, and single-image inference.
+A step-by-step, reproducible implementation of an image classification pipeline using PyTorch, built as a personal learning project on Deep Learning fundamentals. This repository documents the full workflow, from raw MNIST data to a trained CNN, evaluation metrics, confusion matrix analysis and single-image inference.
 
-> 🎓 **Learning context:** This project was built with a personal educational goal, learning the fundamentals of Machine Learning and PyTorch, including tensors, convolutional architectures, the training/evaluation loop, backpropagation and model evaluation. It was developed with the support of a generative AI assistant.
+> 🎓 **Learning context:** This project was built with a personal educational goal, learning the fundamentals of Machine Learning and PyTorch, including tensors, convolutional architectures, the training/evaluation loop, backpropagation and model evaluation. It was developed with the support of a generative AI.
 
 ## Table of Contents
 
@@ -14,7 +14,6 @@ A step-by-step, reproducible implementation of an image classification pipeline 
 - [Viewing Results](#viewing-results)
 - [Results](#results)
 - [What I Learned](#what-i-learned)
-- [License](#license)
 
 ## About the Dataset
 
@@ -93,8 +92,8 @@ python -c "import torch; print(torch.__version__)"
 Clone this repository, then move into it:
 
 ```bash
-git clone https://github.com/pedrocambui06/handwritten-digit-classification.git
-cd handwritten-digit-classification
+git clone https://github.com/pedrocambui06/pytorch_handwritten_digit_classification.git
+cd pytorch_handwritten_digit_classification
 ```
 
 Activate your virtual environment (see above), then run the modules **in order**. Each one is commented and mirrors one stage of the pipeline described above.
@@ -116,12 +115,10 @@ python -m src.evaluate
 python -m src.infer
 ```
 
-> ⚠️ `src/evaluate.py` currently retrains the model before evaluating it, since model persistence was only introduced in a later stage of the project.
-
 ## Repository Structure
 
 ```
-handwritten-digit-classification/
+pytorch_handwritten_digit_classification/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
@@ -136,8 +133,8 @@ handwritten-digit-classification/
 │ └── utils.py           # Visualization utilities
 ├── models/
 │ └── cnn_model.pth      # Saved trained model weights
-└── results/
-└── figures/             # Generated plots and visualizations
+├── images/              # README extra images
+└── results/figures      # Generated plots and visualizations
 ```
 
 ## Viewing Results
@@ -166,6 +163,10 @@ All generated figures are plain PNG images and can be opened with any image view
 | Test Loss                              | 0.0295 |
 
 <img src="images/test_loss_and_accuracy.png" width="500" alt="Test Loss and Accuracy">
+
+<img src="results/figures/training_accuracy.png" width="500" alt="Training Accuracy vs Epoch">
+
+<img src="results/figures/training_loss.png" width="500" alt="Training Loss vs Epoch">
 
 ### Confusion matrix analysis:
 Overall, the model performs very well across all classes, with most digits achieving over 950 correct predictions out of roughly 1,000 test samples per class.
