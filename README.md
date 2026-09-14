@@ -159,8 +159,8 @@ All generated figures are plain PNG images and can be opened with any image view
 | Learning rate                   | 0.001 |
 | Optimizer                         | Adam |
 | Device                              | CPU |
-| Test Accuracy                        | 99.02% |
-| Test Loss                              | 0.0295 |
+| Test Accuracy                        | 99.06% |
+| Test Loss                              | 0.0287 |
 
 <img src="images/test_loss_and_accuracy.png" width="500" alt="Test Loss and Accuracy">
 
@@ -169,20 +169,12 @@ All generated figures are plain PNG images and can be opened with any image view
 <img src="results/figures/training_loss.png" width="500" alt="Training Loss vs Epoch">
 
 ### Confusion matrix analysis:
-Overall, the model performs very well across all classes, with most digits achieving over 950 correct predictions out of roughly 1,000 test samples per class.
-Digit 1 is the most accurately classified (1,128 correct, only 7 total misclassifications), followed closely by digit 0 (974 correct).
-The most frequent confusion by far is actual 3 predicted as 5 (27 cases) — a systematic error, likely driven by the visual similarity between a rounded, open-top 3 and a 5 written with a curved lower loop.
-A secondary, smaller pattern is actual 4 predicted as 9 (9 cases), consistent with the well-known visual overlap between an open-top 4 and a 9.
-Digit 6 shows the most scattered error pattern, with small misclassification counts spread across several different classes (0, 1, 2, 4, 5, 8) rather than concentrated on a single confusable digit, suggesting these errors are closer to random noise than a systematic visual confusion.
+The model performs very well across all classes, with most digits achieving over 950 correct predictions. Digit 1 is the most accurately classified (1130 correct out of 1135 samples, only 5 total misclassifications), while digit 4 has the fewest errors in absolute terms (only 2 misclassified). The most frequent single confusion is actual 9 predicted as 4 (9 cases), consistent with the well-known visual overlap between a closed-loop 9 and a 4 with a fully closed top. The second most common confusion is actual 6 predicted as 0 (5 cases), likely caused by 6s written with a rounded, closed loop that resembles a 0. Digit 8 shows a more scattered error pattern, with small misclassification counts spread across several different classes (0, 2, 3, 4, 5, 6, 7, 9) rather than concentrated on a single confusable digit, suggesting these errors behave closer to random noise than a systematic visual confusion.
 
 <img src="results/figures/confusion_matrix.png" width="500" alt="Confusion Matrix">
 
 ### Error analysis:
-Examining individual misclassified examples confirms the patterns observed in the confusion matrix.
-The first sample (top-left), labeled as a 3 but predicted as 5, shows a digit written with a rounded, almost closed loop at the bottom — visually very close to how a 5 is typically drawn, making the error understandable rather than a model failure.
-Similarly, two other samples labeled 3 and predicted as 5 show the same rounded-bottom writing style, reinforcing that this specific confusion is driven by handwriting style rather than random noise.
-Another clear case is a digit labeled 4 but predicted as 9: the 4 is written with a fully closed top loop, which visually resembles a 9 far more than a typical open-top 4.
-These examples suggest that most of the model's errors are not arbitrary — they occur on genuinely ambiguous handwriting samples that could plausibly be misread by a human as well.
+Examining individual misclassified examples reinforces the patterns seen in the confusion matrix. Three of the ten sampled errors involve a 2 predicted as 7, in each case, the digit is written with a short, angular top stroke and a straight diagonal body, closely resembling how a 7 is typically drawn. Two samples show a 3 predicted as 5, both written with a rounded, partially closed bottom loop that visually approximates a 5. One sample labeled 6 is predicted as 0, the digit is drawn as a nearly closed loop with only a small opening, making it genuinely ambiguous between the two classes. Another sample labeled 9 is predicted as 8, drawn with a fully closed lower loop that gives it the double-loop appearance typical of an 8. Overall, these examples suggest that most of the model's mistakes occur on genuinely ambiguous handwriting samples, cases that a human reader could plausibly misclassify as well, rather than arbitrary or unexplainable failures.
 
 <img src="results/figures/incorrect_predictions.png" width="500" alt="Incorrect Predictions">
 
