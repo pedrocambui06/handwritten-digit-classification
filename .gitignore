@@ -1,0 +1,23 @@
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python cache and bytecode
+__pycache__/
+*.pyc
+
+# Dataset automatically downloaded by torchvision (should not be versioned)
+data/*
+!data/.gitkeep
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.idea/
+.vscode/
